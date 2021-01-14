@@ -3,6 +3,11 @@ html(lang="en")
     head    
         title Flash Cards
     body 
-    include includes/header.pug        
+    include includes/header.pug  
+        if name
+            h2 Welcome, #{name}!      
+            a(href="/goodbye")
+                button(type='submit') Sign Out
+            br
     block content
     include includes/footer.pug        

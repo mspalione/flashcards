@@ -1,0 +1,9 @@
+extends layout.pug
+
+block content
+    section#content
+        h2 Random Study
+        p Press the button to receive a random study card!
+
+        a(href=`/cards/${id}?side=question`)
+            button(type='submit') Randomize Me!
