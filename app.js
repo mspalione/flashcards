@@ -15,6 +15,7 @@ const names = [
 const app = express()
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
+app.use('/static', express.static('public'))
 
 app.set('view engine', 'pug')
 
@@ -24,15 +25,21 @@ app.use(mainRoutes)
 app.use('/cards', cardRoutes)
 
 app.use((req, res, next) => {
+    const name = req.cookies.username
     const err = new Error('Not Found')
     err.status = 404
-    next(err)
+    const template = {name, err}
+
+    res.render('error', template)
 })
 
 app.use((err, req, res, next) => {
+    const name = req.cookies.username
     res.locals.error = err
     res.status(err.status)
-    res.render('error', err)
+    const template = {name, err}
+
+    res.render('error', template)
 })
 
 app.listen(3000, () => {

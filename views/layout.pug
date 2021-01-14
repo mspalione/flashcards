@@ -2,12 +2,19 @@ doctype html
 html(lang="en")
     head    
         title Flash Cards
+        link(rel='stylesheet', href='/static/stylesheets/style.css')
     body 
     include includes/header.pug  
-        if name
-            h2 Welcome, #{name}!      
-            a(href="/goodbye")
-                button(type='submit') Sign Out
-            br
-    block content
-    include includes/footer.pug        
+        .namecard
+            .namecard-hello
+                if name
+                    h2.namecard-greeting Welcome, #{name}!      
+                    a.namecard-exit(href="/goodbye")
+                        button(type='submit') 
+                            img(src='/static/img/close.svg')
+                            p Sign Out
+                    br
+                else 
+                    p.namecard-greeting Hello, student!     
+                
+                block content       
