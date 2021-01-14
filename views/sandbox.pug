@@ -1,18 +1,14 @@
-doctype html
-html(lang="en")
-    head    
-        title Sandbox
-    body 
-        h1 Sandbox
-    section#content
-        table
-            tr
-                th First Name
-                th Last Name
-            tbody 
-                each name in names
-                    tr 
-                        td= n.first
-                        td= n.last
-    footer  
-        p Learning through play.
+extends layout.pug
+
+block content
+
+    h1 Sandbox
+    table
+        tr
+            th First Name
+            th Last Name
+        tbody 
+            each name in names
+                tr 
+                    td= name.first
+                    td= name.last

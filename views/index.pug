@@ -1,10 +1,8 @@
-doctype html
-html(lang="en")
-    head    
-        title Flash Cards
-    body 
-        h1 Flash Cards
+extends layout.pug
+
+block content
     section#content
-        h2 Welcome, student!
-    footer  
-        p An app to help you study
+        h2 Welcome, #{name}!
+
+        a(href="/goodbye")
+            button(type='submit') Sign Out
